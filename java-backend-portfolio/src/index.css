@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Estas tres directivas son ESENCIALES y deben estar al principio del CSS de Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- Variables CSS Globales (Opcionales) --- */
+:root {
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+}
+
+/* --- Estilos globales --- */
+body {
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Si quieres aplicar estilos Tailwind globalmente, hazlo en el archivo JSX, no con @apply aquí */
+
+/* --- Transiciones para modo oscuro --- */
+.dark-mode-transition * {
+  @apply transition-colors duration-200;
+}
+
+/* --- Estilo para enlaces del header --- */
+.nav-link {
+  @apply relative px-3 py-2 transition-colors;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+/* --- Animaciones --- */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* --- Scrollbar personalizada --- */
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #e5e7eb; /* gray-200 */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3b82f6; /* blue-500 */
+  border-radius: 9999px;
+}
+
+/* --- SVG debug --- */
+svg {
+  width: 24px !important;
+  height: 24px !important;
+  display: inline-block;
+}
