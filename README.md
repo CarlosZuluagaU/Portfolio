@@ -1,7 +1,7 @@
 # Portfolio
 
 #Contactame 
-Linkedin:
+Linkedin: www.linkedin.com/in/carlos-andres-zuluaga-699296307
 Correo: carloszuluagag7codinino@gmail.com
 
 # Portafolio Java Backend Developer
