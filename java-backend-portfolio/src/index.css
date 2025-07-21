@@ -1,71 +1,92 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-/* Estas tres directivas son ESENCIALES y deben estar al principio del CSS de Tailwind */
+/* Tailwind Directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* --- Variables CSS Globales (Opcionales) --- */
-:root {
-  --primary: #3b82f6;
-  --primary-dark: #2563eb;
+/* --- Base Styles --- */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-200;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Selection styles */
+  ::selection {
+    @apply bg-blue-600/20 text-blue-600 dark:bg-blue-400/20 dark:text-blue-400;
+  }
+  
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold leading-tight;
+  }
 }
 
-/* --- Estilos globales --- */
-body {
-  font-family: 'Inter', sans-serif;
-  scroll-behavior: smooth;
+/* --- Components --- */
+@layer components {
+  /* Navigation Links */
+  .nav-link {
+    @apply relative px-3 py-2 font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300;
+    transform: translateX(-50%);
+  }
+  
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply w-full;
+  }
+  
+  /* Buttons */
+  .btn-primary {
+    @apply px-6 py-3 rounded-lg font-medium bg-blue-600 hover:bg-blue-700 text-white transition-colors shadow-md hover:shadow-lg;
+  }
+  
+  .btn-outline {
+    @apply px-6 py-3 rounded-lg font-medium border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors;
+  }
+  
+  /* Cards */
+  .card {
+    @apply bg-gray-50 dark:bg-gray-800 p-6 rounded-xl shadow-lg transition-all hover:shadow-xl;
+  }
 }
 
-/* Si quieres aplicar estilos Tailwind globalmente, hazlo en el archivo JSX, no con @apply aquí */
-
-/* --- Transiciones para modo oscuro --- */
-.dark-mode-transition * {
-  @apply transition-colors duration-200;
+/* --- Utilities --- */
+@layer utilities {
+  /* Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
 }
 
-/* --- Estilo para enlaces del header --- */
-.nav-link {
-  @apply relative px-3 py-2 transition-colors;
-}
-
-.nav-link::after {
-  content: '';
-  @apply absolute bottom-0 left-1/2 w-0 h-0.5 bg-blue-600 dark:bg-blue-400 transition-all duration-300;
-  transform: translateX(-50%);
-}
-
-.nav-link:hover::after {
-  @apply w-full;
-}
-
-/* --- Animaciones --- */
-.fade-in {
-  animation: fadeIn 0.5s ease-in;
-}
-
+/* --- Keyframes --- */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-/* --- Scrollbar personalizada --- */
-::-webkit-scrollbar {
-  width: 0.5rem;
-}
-
-::-webkit-scrollbar-track {
-  background-color: #e5e7eb; /* gray-200 */
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #3b82f6; /* blue-500 */
-  border-radius: 9999px;
-}
-
-/* --- SVG debug --- */
-svg {
-  width: 24px !important;
-  height: 24px !important;
-  display: inline-block;
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -1,8 +1,36 @@
+:root {
+  --background-dark: #181818;      /* Negro mate */
+  --text-main: #f3f3f3;           /* Blanco suave para contraste */
+  --text-secondary: #b0b0b0;      /* Gris claro */
+  --accent: #b22222;              /* Rojo mate tipo Java */
+  --border-color: #232323;        /* Gris oscuro para bordes */
+}
+
+body {
+  background-color: var(--background-dark);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-color: var(--background-dark);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #e57373; /* Rojo claro elegante */
 }
 
 .logo {
@@ -12,7 +40,7 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em var(--accent));
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
@@ -34,9 +62,18 @@
 }
 
 .card {
+  background-color: #1a1a1a;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
   padding: 2em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
 }
 
 .read-the-docs {
-  color: #888;
+  color: var(--text-secondary);
 }
