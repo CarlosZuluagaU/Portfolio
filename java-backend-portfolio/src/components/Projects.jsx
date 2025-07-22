@@ -27,52 +27,33 @@ const techIcons = {
 
 const projects = [
   {
-    title: "Sistema de Gestión Bancaria",
-    description: "Backend para sistema bancario con Spring Boot, seguridad JWT y microservicios",
-    tags: ["Java", "Spring Boot", "PostgreSQL", "JWT"],
-    github: "#",
-    live: "#",
-    image: "/images/project-bank.jpg"
+    title: "E-commerceWithScraper",
+    description: "Proyecto que busca productos en sitios web de compras, compara y muestra el producto con el mejor precio posible usando IA y scraping con Spring Boot y Java.",
+    tags: ["Java", "Spring Boot", "Scraper", "IA"],
+    github: "https://github.com/CarlosZuluagaU/E-commerceWithScraper",
+    image: "https://source.unsplash.com/400x300/?shopping,ai,scraper"
   },
   {
-    title: "API E-commerce",
-    description: "API RESTful para plataforma de comercio electrónico con pagos integrados",
-    tags: ["Java", "Spring", "MySQL", "Stripe API"],
-    github: "#",
-    live: "#",
-    image: "/images/project-ecommerce.jpg"
+    title: "Sistema de Inventarios",
+    description: "Sistema de inventarios realizado para un negocio de la ciudad de Bolívar, Cartagena. Permite gestionar productos, entradas y salidas de stock de manera eficiente.",
+    tags: ["React", "Node.js", "Supabase"],
+    github: "https://github.com/CarlosZuluagaU/SystemInvetary",
+    live: "https://CarlosZuluagaU.github.io/inventarios-v1-ready-main/",
+    image: "https://source.unsplash.com/400x300/?inventory,warehouse,stock"
   },
   {
-    title: "Sistema de Reservas",
-    description: "Sistema distribuido para reservas de hoteles con Spring Cloud",
-    tags: ["Microservicios", "Spring Cloud", "Docker", "Kafka"],
-    github: "#",
-    live: "#",
-    image: "/images/project-booking.jpg"
+    title: "CulturaMedia-UdeA Backend API",
+    description: "API RESTful para la aplicación CulturaMedia-UdeA. Gestiona usuarios, contenidos, categorías y más, actuando como el cerebro de la aplicación para la lógica de negocio y persistencia de datos.",
+    tags: ["Java", "Spring Boot", "PostgreSQL", "Spring Security"],
+    github: "https://github.com/CarlosZuluagaU/culturamedia-UdeA",
+    image: "https://source.unsplash.com/400x300/?media,api,backend"
   },
   {
-    title: "Plataforma de Análisis de Datos",
-    description: "Backend para procesamiento de grandes volúmenes de datos financieros",
-    tags: ["Java", "Spring Batch", "AWS", "Big Data"],
-    github: "#",
-    live: "#",
-    image: "/images/project-analytics.jpg"
-  },
-  {
-    title: "API de Autenticación",
-    description: "Servicio de autenticación centralizado con OAuth2 y SSO",
-    tags: ["Spring Security", "OAuth2", "JWT", "Redis"],
-    github: "#",
-    live: "#",
-    image: "/images/project-auth.jpg"
-  },
-  {
-    title: "Sistema de Notificaciones",
-    description: "Servicio de notificaciones en tiempo real con WebSockets",
-    tags: ["Spring", "WebSockets", "RabbitMQ", "MongoDB"],
-    github: "#",
-    live: "#",
-    image: "/images/project-notifications.jpg"
+    title: "ProyectUdeaCitas",
+    description: "Proyecto de agendación de citas UdeA, desarrollado para gestionar y agendar citas con diferentes especialidades de manera eficiente.",
+    tags: ["Java", "Spring Boot", "MySQL"],
+    github: "https://github.com/CarlosZuluagaX/ProyectUdeaCitas",
+    image: "https://source.unsplash.com/400x300/?calendar,appointment,meeting"
   }
 ];
 
@@ -164,17 +145,7 @@ const Projects = () => {
                       <span className="text-sm">Código</span>
                     </a>
                   )}
-                  {project.live && (
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center px-4 py-2 bg-black hover:bg-gray-900 text-red-500 font-semibold rounded-lg transition-colors border border-red-500"
-                    >
-                      <FaExternalLinkAlt className="w-4 h-4 mr-2" />
-                      <span className="text-sm">Demo</span>
-                    </a>
-                  )}
+                  {/* Demo eliminado para Sistema de Inventarios */}
                 </div>
               </div>
             </motion.div>

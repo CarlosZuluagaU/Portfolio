@@ -47,9 +47,8 @@ const Hero = () => {
           </h1>
 
           <p className="text-lg text-gray-400 mb-8 leading-relaxed max-w-2xl">
-            Especializado en <span className="font-semibold text-gray-100">Spring Boot, Microservicios y APIs REST</span>. 
-            En mi último proyecto optimicé el rendimiento en un <span className="font-semibold text-blue-400">65%</span> implementando caching con Redis. 
-            Apasionado por crear soluciones escalables y código limpio.
+            Estudiante proximo a gradurse de Ingenieria de Sistemas, Especializado en <span className="font-semibold text-gray-100">Spring Boot, Microservicios y APIs REST</span>. 
+            Varias de mis proyectos fueron realizados con la implementación de patrones de diseño y arquitecturas modernas, y en camino de aprender IA para implementar a los futuros proyectos con Java.
           </p>
 
           {/* Tech stack pills */}
