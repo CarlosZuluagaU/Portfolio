@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaFileDownload } from "react-icons/fa";
 import { SiLeetcode, SiSpring } from "react-icons/si";
 import { TbApi } from "react-icons/tb";
+import { useTranslation } from "../hooks/useTranslation";
 
 const socialLinks = [
   {
@@ -22,7 +23,7 @@ const socialLinks = [
 ];
 
 const Hero = () => {
-  // <-- ¡AQUÍ ESTÁ LA LÍNEA AÑADIDA!
+  const { t } = useTranslation();
   const cvUrl = `${import.meta.env.BASE_URL}CV-Carlos-Zuluaga_sp.pdf`;
 
   const yearsOfExperience = 2;
@@ -48,11 +49,14 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
             className="mb-4"
           >
+            <span className="text-red-500 font-semibold text-lg tracking-wide">
+              {t("hero.badge")}
+            </span>
           </motion.div>
 
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            <span className="text-white">Carlos</span>{" "}
-            <span className="text-red-700">Zuluaga</span>
+            <span className="text-white">{t("hero.greeting").split(" ")[0]}</span>{" "}
+            <span className="text-red-700">{t("hero.greeting").split(" ")[1]}</span>
           </h1>
 
           <motion.h2 
@@ -61,17 +65,12 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            Ingeniero de Sistemas especializado en{" "}
-            <span className="font-semibold text-red-400">arquitecturas escalables</span>
+            {t("hero.subtitle")}{" "}
+            <span className="font-semibold text-red-400">{t("hero.subtitleHighlight")}</span>
           </motion.h2>
 
           <p className="text-lg text-gray-400 mb-8 leading-relaxed max-w-2xl">
-            Creo soluciones robustas con{" "}
-            <span className="font-semibold text-gray-100">
-              Spring Boot, Microservicios y APIs REST
-            </span>
-            . Mis proyectos implementan patrones de diseño y arquitecturas modernas, 
-            integrando tecnologías emergentes como IA para crear sistemas de alto rendimiento.
+            {t("hero.description")}
           </p>
 
           {/* Tech stack pills */}
@@ -123,7 +122,7 @@ const Hero = () => {
               whileTap={{ scale: 0.95 }}
             >
               <TbApi size={22} className="group-hover:rotate-12 transition-transform duration-300" />
-              <span>Explorar Proyectos</span>
+              <span>{t("hero.exploreProjects")}</span>
               <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
@@ -137,7 +136,7 @@ const Hero = () => {
               whileTap={{ scale: 0.95 }}
             >
               <FaFileDownload size={20} className="group-hover:animate-bounce" />
-              <span>Descargar CV</span>
+              <span>{t("hero.downloadCV")}</span>
             </motion.a>
           </motion.div>
 
@@ -228,7 +227,7 @@ const Hero = () => {
               }}
             >
               <div className="font-bold text-2xl">{projectsCompleted}+</div>
-              <div className="text-sm opacity-90">Proyectos</div>
+              <div className="text-sm opacity-90">{t("hero.projectsLabel")}</div>
             </motion.div>
 
             <motion.div
@@ -243,7 +242,7 @@ const Hero = () => {
               }}
             >
               <div className="font-bold text-2xl">{yearsOfExperience}</div>
-              <div className="text-sm opacity-90">Años</div>
+              <div className="text-sm opacity-90">{t("hero.yearsLabel")}</div>
             </motion.div>
 
             <motion.div
@@ -258,7 +257,7 @@ const Hero = () => {
               }}
             >
               <div className="font-bold text-lg">Java</div>
-              <div className="text-xs opacity-90">Expert</div>
+              <div className="text-xs opacity-90">{t("hero.expertLabel")}</div>
             </motion.div>
           </div>
         </motion.div>

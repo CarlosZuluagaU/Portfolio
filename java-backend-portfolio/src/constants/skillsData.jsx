@@ -1,6 +1,6 @@
-const skillsData = [
+export const getSkillsData = (t) => [
   {
-    category: 'Lenguajes y Backend',
+    category: t("skills.categories.backend"),
     items: [
       { 
         name: 'Java',
@@ -45,7 +45,7 @@ const skillsData = [
     ],
   },
   {
-    category: 'Frontend',
+    category: t("skills.categories.frontend"),
     items: [
       { 
         name: 'React.js',
@@ -82,7 +82,7 @@ const skillsData = [
     ]
   },
   {
-    category: 'Herramientas y Cloud',
+    category: t("skills.categories.tools"),
     items: [
       { 
         name: 'Docker',
@@ -135,5 +135,3 @@ const skillsData = [
     ],
   }
 ];
-
-export { skillsData };

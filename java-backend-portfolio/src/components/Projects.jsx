@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaAws, FaJava } from 'react-icons/fa';
 import { SiSpring, SiDocker, SiPostgresql, SiRedis } from 'react-icons/si';
+import { useTranslation } from '../hooks/useTranslation';
 
 // --- MAPA DE ICONOS DE TECNOLOGÍA ---
 const techIcons = {
@@ -90,6 +91,8 @@ const projects = [
 ];
 
 const Projects = () => {
+  const { t } = useTranslation();
+  
   return (
     <section 
       id="projects" 
@@ -104,10 +107,10 @@ const Projects = () => {
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Proyectos Destacados</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("projects.title")}</h2>
           <div className="w-20 h-1 bg-red-700 dark:bg-red-500 mx-auto mb-6 rounded-full"></div>
           <p className="max-w-2xl mx-auto text-gray-300 dark:text-gray-300 text-lg">
-            Estos son mis proyectos más relevantes donde he aplicado arquitecturas backend robustas y escalables.
+            {t("projects.subtitle")}
           </p>
         </motion.div>
 
@@ -154,13 +157,13 @@ const Projects = () => {
                   {/* Impacto */}
                   <div className="bg-red-500/10 border-l-4 border-red-500 p-4 mb-6 rounded-r">
                     <p className="text-red-200 font-medium">
-                      💡 <strong>Impacto:</strong> {project.impact}
+                      💡 <strong>{t("projects.impactLabel")}:</strong> {project.impact}
                     </p>
                   </div>
 
                   {/* Características principales */}
                   <div className="mb-6">
-                    <h4 className="text-lg font-semibold text-gray-100 mb-3">Características principales:</h4>
+                    <h4 className="text-lg font-semibold text-gray-100 mb-3">{t("projects.featuresLabel")}:</h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                       {project.features.map((feature, i) => (
                         <div key={i} className="flex items-start gap-2">
@@ -199,7 +202,7 @@ const Projects = () => {
                         className="flex items-center px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white font-semibold rounded-lg transition-colors"
                       >
                         <FaGithub className="w-5 h-5 mr-2" />
-                        Ver Código
+                        {t("projects.buttons.viewCode")}
                       </a>
                     )}
                     {project.live && (
@@ -210,7 +213,7 @@ const Projects = () => {
                         className="flex items-center px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg transition-colors"
                       >
                         <FaExternalLinkAlt className="w-4 h-4 mr-2" />
-                        Ver Demo
+                        {t("projects.buttons.liveDemo")}
                       </a>
                     )}
                   </div>

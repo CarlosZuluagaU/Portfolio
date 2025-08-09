@@ -3,8 +3,10 @@ import { useForm } from 'react-hook-form';
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import emailjs from 'emailjs-com';
 import toast, { Toaster } from 'react-hot-toast';
+import { useTranslation } from '../hooks/useTranslation';
 
 const Contact = () => {
+  const { t } = useTranslation();
   const { 
     register, 
     handleSubmit, 
@@ -21,7 +23,7 @@ const Contact = () => {
         process.env.REACT_APP_EMAILJS_USER_ID
       );
       
-      toast.success('Mensaje enviado correctamente!', {
+      toast.success(t('contact.form.success'), {
         position: 'bottom-center',
         style: {
           background: '#4CAF50',
@@ -30,7 +32,7 @@ const Contact = () => {
       });
       reset();
     } catch (error) {
-      toast.error('Error al enviar el mensaje. Inténtalo de nuevo.', {
+      toast.error(t('contact.error'), {
         position: 'bottom-center',
         style: {
           background: '#F44336',
@@ -58,11 +60,11 @@ const Contact = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-red-700 dark:text-red-500">Contáctame</span> para colaborar
+            <span className="text-red-700 dark:text-red-500">{t('contact.sectionTitle')}</span>
           </h2>
           <div className="w-20 h-1 bg-red-700 dark:bg-red-500 mx-auto mb-6 rounded-full"></div>
           <p className="max-w-2xl mx-auto text-gray-300 dark:text-gray-300 text-lg">
-            ¿Tienes un proyecto interesante o quieres discutir oportunidades? Envíame un mensaje.
+            {t('contact.sectionSubtitle')}
           </p>
         </motion.div>
 
@@ -78,7 +80,7 @@ const Contact = () => {
           >
             <div className="bg-[#18141f]/80 dark:bg-[#1a102a]/80 border-2 border-red-700 dark:border-purple-700 p-8 rounded-xl shadow-lg h-full">
               <h3 className="text-2xl font-semibold mb-6 text-red-700 dark:text-purple-400">
-                Información de Contacto
+                {t('contact.contactInfo.title')}
               </h3>
               
               <div className="space-y-6">
@@ -87,7 +89,7 @@ const Contact = () => {
                     <FaEnvelope size={20} />
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-200 dark:text-gray-100">Correo Electrónico</h4>
+                    <h4 className="font-medium text-gray-200 dark:text-gray-100">{t('contact.contactInfo.email')}</h4>
                     <a 
                       href="mailto:tuemail@ejemplo.com" 
                       className="text-gray-300 dark:text-gray-300 hover:text-red-400 dark:hover:text-purple-300 transition-colors"
@@ -102,7 +104,7 @@ const Contact = () => {
                     <FaPhone size={20} />
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-200 dark:text-gray-100">Teléfono</h4>
+                    <h4 className="font-medium text-gray-200 dark:text-gray-100">{t('contact.contactInfo.phone')}</h4>
                     <a 
                       href="tel:+57 3127878037" 
                       className="text-gray-300 dark:text-gray-300 hover:text-red-400 dark:hover:text-purple-300 transition-colors"
@@ -117,14 +119,14 @@ const Contact = () => {
                     <FaMapMarkerAlt size={20} />
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-200 dark:text-gray-100">Ubicación</h4>
+                    <h4 className="font-medium text-gray-200 dark:text-gray-100">{t('contact.contactInfo.location')}</h4>
                     <p className="text-gray-300 dark:text-gray-300">Rionegro, Colombia</p>
                   </div>
                 </div>
 
                 {/* Social Links */}
                 <div className="pt-4">
-                  <h4 className="font-medium text-gray-200 dark:text-gray-100 mb-3">Redes Sociales</h4>
+                  <h4 className="font-medium text-gray-200 dark:text-gray-100 mb-3">{t('contact.contactInfo.social')}</h4>
                   <div className="flex gap-4">
                     <a 
                       href="https://github.com/tu-usuario" 
@@ -158,28 +160,28 @@ const Contact = () => {
           >
             <div className="bg-[#18141f]/80 dark:bg-[#1a102a]/80 border-2 border-red-700 dark:border-purple-700 p-8 rounded-xl shadow-lg h-full">
               <h3 className="text-2xl font-semibold mb-6 text-red-700 dark:text-purple-400">
-                Envíame un Mensaje
+                {t('contact.form.title')}
               </h3>
               
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                 <div>
                   <label htmlFor="name" className="block mb-2 text-gray-700 dark:text-gray-300">
-                    Nombre Completo <span className="text-red-500">*</span>
+                    {t('contact.form.name')} <span className="text-red-500">{t('contact.form.required')}</span>
                   </label>
                   <input
                     type="text"
                     id="name"
                     {...register('name', { 
-                      required: 'Por favor ingresa tu nombre',
+                      required: t('contact.form.validation.nameRequired'),
                       minLength: {
                         value: 3,
-                        message: 'El nombre debe tener al menos 3 caracteres'
+                        message: t('contact.form.validation.nameMin')
                       }
                     })}
                     className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 ${
                       errors.name ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
                     }`}
-                    placeholder="Ej: Carlos Pérez"
+                    placeholder={t('contact.form.placeholders.name')}
                   />
                   {errors.name && (
                     <p className="mt-1 text-red-500 text-sm">{errors.name.message}</p>
@@ -188,22 +190,22 @@ const Contact = () => {
 
                 <div>
                   <label htmlFor="email" className="block mb-2 text-gray-700 dark:text-gray-300">
-                    Correo Electrónico <span className="text-red-500">*</span>
+                    {t('contact.form.email')} <span className="text-red-500">{t('contact.form.required')}</span>
                   </label>
                   <input
                     type="email"
                     id="email"
                     {...register('email', {
-                      required: 'Por favor ingresa tu email',
+                      required: t('contact.form.validation.emailRequired'),
                       pattern: {
                         value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: 'Ingresa un email válido'
+                        message: t('contact.form.validation.emailInvalid')
                       }
                     })}
                     className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 ${
                       errors.email ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
                     }`}
-                    placeholder="ejemplo@email.com"
+                    placeholder={t('contact.form.placeholders.email')}
                   />
                   {errors.email && (
                     <p className="mt-1 text-red-500 text-sm">{errors.email.message}</p>
@@ -212,22 +214,22 @@ const Contact = () => {
 
                 <div>
                   <label htmlFor="subject" className="block mb-2 text-gray-700 dark:text-gray-300">
-                    Asunto <span className="text-red-500">*</span>
+                    {t('contact.form.subject')} <span className="text-red-500">{t('contact.form.required')}</span>
                   </label>
                   <input
                     type="text"
                     id="subject"
                     {...register('subject', { 
-                      required: 'Por favor ingresa un asunto',
+                      required: t('contact.form.validation.subjectRequired'),
                       minLength: {
                         value: 5,
-                        message: 'El asunto debe tener al menos 5 caracteres'
+                        message: t('contact.form.validation.subjectMin')
                       }
                     })}
                     className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 ${
                       errors.subject ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
                     }`}
-                    placeholder="Ej: Oportunidad de trabajo"
+                    placeholder={t('contact.form.placeholders.subject')}
                   />
                   {errors.subject && (
                     <p className="mt-1 text-red-500 text-sm">{errors.subject.message}</p>
@@ -236,22 +238,22 @@ const Contact = () => {
 
                 <div>
                   <label htmlFor="message" className="block mb-2 text-gray-700 dark:text-gray-300">
-                    Mensaje <span className="text-red-500">*</span>
+                    {t('contact.form.message')} <span className="text-red-500">{t('contact.form.required')}</span>
                   </label>
                   <textarea
                     id="message"
                     rows="5"
                     {...register('message', { 
-                      required: 'Por favor escribe tu mensaje',
+                      required: t('contact.form.validation.messageRequired'),
                       minLength: {
                         value: 10,
-                        message: 'El mensaje debe tener al menos 10 caracteres'
+                        message: t('contact.form.validation.messageMin')
                       }
                     })}
                     className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 ${
                       errors.message ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
                     }`}
-                    placeholder="Hola, me gustaría hablar sobre..."
+                    placeholder={t('contact.form.placeholders.message')}
                   ></textarea>
                   {errors.message && (
                     <p className="mt-1 text-red-500 text-sm">{errors.message.message}</p>
@@ -269,7 +271,7 @@ const Contact = () => {
                   whileHover={!isSubmitting ? { scale: 1.02 } : {}}
                   whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                 >
-                  {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
+                  {isSubmitting ? t('contact.form.sending') : t('contact.form.send')}
                 </motion.button>
               </form>
             </div>

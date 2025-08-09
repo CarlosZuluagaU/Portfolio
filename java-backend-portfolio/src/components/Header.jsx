@@ -2,8 +2,11 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaSun, FaMoon, FaBars, FaTimes, FaDownload } from "react-icons/fa";
 import { SiSpring } from "react-icons/si";
+import { useTranslation } from "../hooks/useTranslation";
+import LanguageSelector from "./ui/LanguageSelector";
 
 const Header = ({ darkMode, setDarkMode }) => {
+  const { t } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -32,11 +35,11 @@ const Header = ({ darkMode, setDarkMode }) => {
   }, []);
 
   const navItems = [
-    { name: "Inicio", href: "#home" },
-    { name: "Experiencia", href: "#about"},
-    { name: "Stack", href: "#skills"},
-    { name: "Proyectos", href: "#projects" },
-    { name: "Contacto", href: "#contact", icon: "👨‍💻" },
+    { name: t("nav.home"), href: "#home", icon: "" },
+    { name: t("nav.experience"), href: "#about", icon: "" },
+    { name: t("nav.stack"), href: "#skills", icon: "" },
+    { name: t("nav.projects"), href: "#projects", icon: "" },
+    { name: t("nav.contact"), href: "#contact", icon: "" },
   ];
 
   return (
@@ -123,8 +126,11 @@ const Header = ({ darkMode, setDarkMode }) => {
               transition={{ delay: 0.8, duration: 0.5 }}
             >
               <FaDownload className="mr-2 group-hover:animate-bounce" />
-              <span className="font-semibold">Curriculum</span>
+              <span className="font-semibold">{t("nav.downloadCV")}</span>
             </motion.a>
+
+            {/* Language Selector */}
+            <LanguageSelector className="ml-4" />
 
             {/* Botón de Dark Mode Premium */}
             <motion.button
@@ -146,6 +152,9 @@ const Header = ({ darkMode, setDarkMode }) => {
 
           {/* Botón de Menú Móvil */}
           <div className="md:hidden flex items-center space-x-3">
+            {/* Language Selector Mobile */}
+            <LanguageSelector />
+            
             {/* Botón de Dark Mode para móvil */}
             <motion.button
               onClick={() => setDarkMode(!darkMode)}
@@ -222,7 +231,7 @@ const Header = ({ darkMode, setDarkMode }) => {
                   transition={{ delay: 0.6, duration: 0.3 }}
                 >
                   <FaDownload className="mr-4 text-xl group-hover:animate-bounce" />
-                  <span className="font-semibold">Descargar Curriculum</span>
+                  <span className="font-semibold">{t("nav.downloadCV")}</span>
                 </motion.a>
               </div>
             </motion.nav>

@@ -1,16 +1,20 @@
 // Skills.jsx
 import React from 'react';
 import SkillCard from './SkillCard'; 
-import { skillsData } from '../constants/skillsData';
+import { getSkillsData } from '../constants/skillsData';
+import { useTranslation } from '../hooks/useTranslation';
 
 const Skills = () => {
+  const { t } = useTranslation();
+  const skillsData = getSkillsData(t);
+  
   return (
     // Sección principal de habilidades con ID para navegación y estilos Tailwind
     <section id="skills" className="py-16 bg-[#181818] dark:bg-black transition-colors duration-300">
       <div className="container mx-auto px-6">
         {/* Título de la sección */}
         <h2 className="text-4xl font-bold text-center text-white dark:text-white mb-12">
-          Mis Habilidades
+          {t("skills.title")}
         </h2>
         
         {/* Contenedor de las categorías de habilidades en cuadrícula responsiva */}

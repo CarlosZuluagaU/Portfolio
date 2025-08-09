@@ -4,8 +4,10 @@ import {
   FaPhone, FaMapMarkerAlt // ✅ Agregado
 } from 'react-icons/fa';
 import { SiLeetcode, SiHackerrank, SiSpring } from 'react-icons/si';
+import { useTranslation } from '../hooks/useTranslation';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const socialLinks = [
     { icon: <FaGithub size={20} />, url: 'https://github.com/tu-usuario', name: 'GitHub', color: 'hover:text-gray-400' },
     { icon: <FaLinkedin size={20} />, url: 'https://linkedin.com/in/tu-perfil', name: 'LinkedIn', color: 'hover:text-blue-500' },
@@ -17,11 +19,11 @@ const Footer = () => {
   ];
 
   const navLinks = [
-    { name: 'Inicio', href: '#home' },
-    { name: 'Sobre mí', href: '#about' },
-    { name: 'Habilidades', href: '#skills' },
-    { name: 'Proyectos', href: '#projects' },
-    { name: 'Contacto', href: '#contact' }
+    { name: t('nav.home'), href: '#home' },
+    { name: t('about.subtitle'), href: '#about' },
+    { name: t('skills.title'), href: '#skills' },
+    { name: t('nav.projects'), href: '#projects' },
+    { name: t('nav.contact'), href: '#contact' }
   ];
 
   return (
@@ -71,13 +73,13 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h3 className="text-lg font-semibold text-red-700 mb-3">Newsletter</h3>
-            <p className="text-gray-400 mb-4 text-sm">¿Quieres recibir novedades sobre mis proyectos y artículos? Suscríbete a mi newsletter.</p>
+            <h3 className="text-lg font-semibold text-red-700 mb-3">{t('footer.newsletter.title')}</h3>
+            <p className="text-gray-400 mb-4 text-sm">{t('footer.newsletter.description')}</p>
             <form className="flex flex-col sm:flex-row gap-2">
               <input
                 type="email"
                 className="rounded-md px-3 py-2 bg-gray-900 text-gray-200 focus:outline-none focus:ring-2 focus:ring-red-700 w-full sm:w-auto"
-                placeholder="Tu correo electrónico"
+                placeholder={t('footer.newsletter.placeholder')}
                 disabled
               />
               <button
@@ -85,7 +87,7 @@ const Footer = () => {
                 className="bg-red-700 hover:bg-red-800 text-white font-semibold px-4 py-2 rounded-md transition-colors cursor-not-allowed opacity-70"
                 disabled
               >
-                Pronto disponible
+                {t('footer.newsletter.button')}
               </button>
             </form>
           </motion.div>
@@ -98,7 +100,7 @@ const Footer = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.15 }}
             >
-              <h3 className="text-lg font-semibold text-red-700 mb-4">Enlaces Rápidos</h3>
+              <h3 className="text-lg font-semibold text-red-700 mb-4">{t('footer.quickLinks')}</h3>
               <ul className="space-y-2">
                 {navLinks.map((link, index) => (
                   <motion.li
@@ -124,7 +126,7 @@ const Footer = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h3 className="text-lg font-semibold text-red-700 mb-4">Contacto</h3>
+              <h3 className="text-lg font-semibold text-red-700 mb-4">{t('footer.contact')}</h3>
               <address className="not-italic text-gray-400 space-y-2 text-sm">
                 <p className="flex items-center gap-2">
                   <FaEnvelope className="text-blue-400" />
@@ -155,7 +157,7 @@ const Footer = () => {
           transition={{ duration: 0.5, delay: 0.25 }}
         >
           <p className="text-gray-300 text-base md:text-lg font-medium max-w-2xl mx-auto">
-            Desarrollador backend especializado en <span className="text-red-700 font-semibold">Java</span> y <span className="text-green-500 font-semibold">Spring Boot</span>, creando soluciones escalables y eficientes.
+            {t('footer.description')}
           </p>
         </motion.div>
 
@@ -167,10 +169,10 @@ const Footer = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           <p>
-            &copy; {new Date().getFullYear()} Portafolio Java Developer. Todos los derechos reservados.
+            &copy; {new Date().getFullYear()} Portafolio Java Developer. {t('footer.copyright')}
           </p>
           <p className="mt-2">
-            Diseñado y desarrollado por Carlos Zuluaga.
+            {t('footer.designedBy')}
           </p>
         </motion.div>
       </div>

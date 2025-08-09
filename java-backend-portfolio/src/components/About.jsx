@@ -1,26 +1,29 @@
 import { motion } from 'framer-motion';
 import { FaGraduationCap, FaCode, FaLightbulb, FaUsers } from 'react-icons/fa';
+import { useTranslation } from '../hooks/useTranslation';
 
 const About = () => {
+  const { t } = useTranslation();
+  
   const experiences = [
     {
-      role: "Desarrollador Backend Junior",
-      company: "Freelance & Proyectos Académicos",
-      period: "2021 - Presente",
+      role: t("about.experience.timeline.0.role"),
+      company: t("about.experience.timeline.0.company"),
+      period: t("about.experience.timeline.0.period"),
       achievements: [
-        "Desarrollé y mantuve APIs RESTful utilizando Spring Boot para la gestión de servicios empresariales.",
-        "Implementé soluciones de mensajería asíncrona con Apache Kafka para optimizar la comunicación entre microservicios.",
-        "Desarrollé una aplicación completa de inventarios con base de datos y frontend para negocios emergentes en Cartagena, Bolívar."
+        t("about.experience.timeline.0.achievements.0"),
+        t("about.experience.timeline.0.achievements.1"),
+        t("about.experience.timeline.0.achievements.2")
       ]
     },
     {
-      role: "Desarrollador Java",
-      company: "Proyectos Universitarios - UdeA",
-      period: "2024 - 2025",
+      role: t("about.experience.timeline.1.role"),
+      company: t("about.experience.timeline.1.company"),
+      period: t("about.experience.timeline.1.period"),
       achievements: [
-        "Lideré equipos de proyecto para el desarrollo de aplicaciones internas del club de la UdeA.",
-        "Implementé seguridad con Spring Security, incluyendo autenticación JWT y gestión de roles.",
-        "Diseñé bases de datos relacionales (MySQL) y su integración con Spring Data JPA."
+        t("about.experience.timeline.1.achievements.0"),
+        t("about.experience.timeline.1.achievements.1"),
+        t("about.experience.timeline.1.achievements.2")
       ]
     }
   ];
@@ -28,23 +31,23 @@ const About = () => {
   const highlights = [
     {
       icon: <FaGraduationCap className="text-blue-500" size={24} />,
-      title: "Estudiante de Ingeniería",
-      description: "Formación sólida en desarrollo de software y arquitecturas escalables"
+      title: t("about.highlights.items.0"),
+      description: t("about.highlights.descriptions.0")
     },
     {
       icon: <FaCode className="text-green-500" size={24} />,
-      title: "Backend Specialist",
-      description: "Especializado en Java, Spring Boot y arquitecturas de microservicios"
+      title: t("about.highlights.items.1"),
+      description: t("about.highlights.descriptions.1")
     },
     {
       icon: <FaLightbulb className="text-yellow-500" size={24} />,
-      title: "Solucionador de Problemas",
-      description: "Enfoque en crear soluciones eficientes y mantenibles"
+      title: t("about.highlights.items.2"),
+      description: t("about.highlights.descriptions.2")
     },
     {
       icon: <FaUsers className="text-purple-500" size={24} />,
-      title: "Trabajo en Equipo",
-      description: "Experiencia liderando equipos y colaborando en proyectos complejos"
+      title: t("about.highlights.items.3"),
+      description: t("about.highlights.descriptions.3")
     }
   ];
 
@@ -60,11 +63,11 @@ const About = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-red-700 dark:text-red-500">Experiencia</span> y Habilidades
+            <span className="text-red-700 dark:text-red-500">{t("about.title").split(" ")[0]}</span> {t("about.title").split(" ").slice(1).join(" ")}
           </h2>
           <div className="w-20 h-1 bg-red-700 dark:bg-red-500 mx-auto mb-6 rounded-full"></div>
           <p className="max-w-2xl mx-auto text-gray-300 dark:text-gray-400 text-lg">
-            Estudiante con recorrido en desarrollo de software, especializado en Java y Spring Boot.
+            {t("about.description")}
           </p>
         </motion.div>
 
@@ -76,13 +79,11 @@ const About = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-red-700 dark:text-red-500">Sobre</span> Mí
+            <span className="text-red-700 dark:text-red-500">{t("about.subtitle").split(" ")[0]}</span> {t("about.subtitle").split(" ").slice(1).join(" ")}
           </h2>
-          <div className="w-20 h-1 bg-red-700 dark:bg-red-500 mx-auto mb-6 rounded-full"></div>
+          <div className="w-20 h-1 bg-red-700 dark:text-red-500 mx-auto mb-6 rounded-full"></div>
           <p className="max-w-3xl mx-auto text-gray-300 dark:text-gray-400 text-lg leading-relaxed">
-            Soy un desarrollador backend apasionado por crear soluciones escalables y eficientes. 
-            Con experiencia en Java y Spring Boot, me especializo en el desarrollo de APIs RESTful 
-            y arquitecturas de microservicios que impulsan el crecimiento empresarial.
+            {t("about.description")}
           </p>
         </motion.div>
 
