@@ -1,9 +1,7 @@
 // Skills.jsx
 import React from 'react';
-import SkillBar from './SkillBar'; 
-import { skillsData } from '../constants/skillsData'; // <--- Esto es correcto: ¡importamos los datos!
-
-
+import SkillCard from './SkillCard'; 
+import { skillsData } from '../constants/skillsData';
 
 const Skills = () => {
   return (
@@ -29,14 +27,13 @@ const Skills = () => {
                 {skillCategory.category}
               </h3>
               
-              {/* Contenedor para las barras de habilidad dentro de la categoría */}
-              <div className="space-y-4"> 
+              {/* Grid de tarjetas de habilidades dentro de la categoría */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4"> 
                 {skillCategory.items.map((skill, idx) => (
-                  <SkillBar
+                  <SkillCard
                     key={idx}
                     skillName={skill.name}
-                    proficiency={skill.proficiency}
-                    color={skill.color}
+                    icon={skill.icon}
                   />
                 ))}
               </div>

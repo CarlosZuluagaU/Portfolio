@@ -44,7 +44,7 @@ const Contact = () => {
   return (
     <section 
       id="contact" 
-      className="py-20 px-4 bg-[#181818] dark:bg-black transition-colors duration-300"
+      className="py-20 px-4 bg-gradient-to-br from-[#181818] via-[#1a102a] to-[#1a1a1a] dark:bg-gradient-to-br dark:from-black dark:via-[#2a183a] dark:to-[#181818] transition-colors duration-300"
     >
       <div className="container mx-auto max-w-6xl">
         <Toaster />
@@ -76,21 +76,21 @@ const Contact = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg h-full">
-              <h3 className="text-2xl font-semibold mb-6 text-blue-600 dark:text-blue-400">
+            <div className="bg-[#18141f]/80 dark:bg-[#1a102a]/80 border-2 border-red-700 dark:border-purple-700 p-8 rounded-xl shadow-lg h-full">
+              <h3 className="text-2xl font-semibold mb-6 text-red-700 dark:text-purple-400">
                 Información de Contacto
               </h3>
               
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-blue-100 dark:bg-blue-900/50 rounded-full text-blue-600 dark:text-blue-400">
+                  <div className="p-3 bg-red-100 dark:bg-purple-900/40 rounded-full text-red-700 dark:text-purple-300">
                     <FaEnvelope size={20} />
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-800 dark:text-gray-100">Correo Electrónico</h4>
+                    <h4 className="font-medium text-gray-200 dark:text-gray-100">Correo Electrónico</h4>
                     <a 
                       href="mailto:tuemail@ejemplo.com" 
-                      className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                      className="text-gray-300 dark:text-gray-300 hover:text-red-400 dark:hover:text-purple-300 transition-colors"
                     >
                       carloszuluagag7codinino@gmail.com
                     </a>
@@ -98,14 +98,14 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-blue-100 dark:bg-blue-900/50 rounded-full text-blue-600 dark:text-blue-400">
+                  <div className="p-3 bg-red-100 dark:bg-purple-900/40 rounded-full text-red-700 dark:text-purple-300">
                     <FaPhone size={20} />
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-800 dark:text-gray-100">Teléfono</h4>
+                    <h4 className="font-medium text-gray-200 dark:text-gray-100">Teléfono</h4>
                     <a 
                       href="tel:+57 3127878037" 
-                      className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                      className="text-gray-300 dark:text-gray-300 hover:text-red-400 dark:hover:text-purple-300 transition-colors"
                     >
                       +57 3127878037
                     </a>
@@ -113,24 +113,24 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="p-3 bg-blue-100 dark:bg-blue-900/50 rounded-full text-blue-600 dark:text-blue-400">
+                  <div className="p-3 bg-red-100 dark:bg-purple-900/40 rounded-full text-red-700 dark:text-purple-300">
                     <FaMapMarkerAlt size={20} />
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-800 dark:text-gray-100">Ubicación</h4>
-                    <p className="text-gray-600 dark:text-gray-300">Rionegro, Colombia</p>
+                    <h4 className="font-medium text-gray-200 dark:text-gray-100">Ubicación</h4>
+                    <p className="text-gray-300 dark:text-gray-300">Rionegro, Colombia</p>
                   </div>
                 </div>
 
                 {/* Social Links */}
                 <div className="pt-4">
-                  <h4 className="font-medium text-gray-800 dark:text-gray-100 mb-3">Redes Sociales</h4>
+                  <h4 className="font-medium text-gray-200 dark:text-gray-100 mb-3">Redes Sociales</h4>
                   <div className="flex gap-4">
                     <a 
                       href="https://github.com/tu-usuario" 
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-gray-100 dark:bg-gray-700 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                      className="p-3 bg-[#23182e] dark:bg-[#2a183a] rounded-full text-gray-300 hover:bg-red-700/80 dark:hover:bg-purple-700/80 transition-colors"
                     >
                       <FaGithub size={20} />
                     </a>
@@ -138,7 +138,7 @@ const Contact = () => {
                       href="https://linkedin.com/in/tu-perfil" 
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-gray-100 dark:bg-gray-700 rounded-full text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                      className="p-3 bg-[#23182e] dark:bg-[#2a183a] rounded-full text-gray-300 hover:bg-red-700/80 dark:hover:bg-purple-700/80 transition-colors"
                     >
                       <FaLinkedin size={20} />
                     </a>
@@ -156,8 +156,8 @@ const Contact = () => {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg h-full">
-              <h3 className="text-2xl font-semibold mb-6 text-blue-600 dark:text-blue-400">
+            <div className="bg-[#18141f]/80 dark:bg-[#1a102a]/80 border-2 border-red-700 dark:border-purple-700 p-8 rounded-xl shadow-lg h-full">
+              <h3 className="text-2xl font-semibold mb-6 text-red-700 dark:text-purple-400">
                 Envíame un Mensaje
               </h3>
               

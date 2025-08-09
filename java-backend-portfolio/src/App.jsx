@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
-//import Skills from './components/Skills';
+import Skills from './components/Skills';
 import { motion } from 'framer-motion';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
@@ -23,7 +23,7 @@ function App() {
         <main>
           <Hero />
           <About />
-          {/* <Skills /> */}
+          <Skills />
           <Projects />
           <Contact />
         </main>
