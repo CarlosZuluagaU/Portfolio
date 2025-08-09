@@ -12,6 +12,7 @@ export default defineConfig({
         tailwindcss, // Pasa el plugin de Tailwind CSS
         autoprefixer, // Pasa el plugin de Autoprefixer
       ],
+      base: '/Portfolio/',
     },
   },
 });
