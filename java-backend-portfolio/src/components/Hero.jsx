@@ -32,9 +32,9 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="bg-[#0f0f0f] text-gray-100 min-h-screen flex items-center justify-center px-6 relative overflow-hidden"
+      className="bg-[#0f0f0f] text-gray-100 min-h-screen flex items-center justify-center px-6 pt-20 sm:pt-24 md:pt-0 relative overflow-hidden"
     >
-      <div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between gap-12 z-10">
+      <div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 z-10 py-8 md:py-0">
         {/* Text content */}
         <motion.div
           className="md:w-1/2 text-center md:text-left"
@@ -54,13 +54,13 @@ const Hero = () => {
             </span>
           </motion.div>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 md:mb-6 leading-tight">
             <span className="text-white">{t("hero.greeting").split(" ")[0]}</span>{" "}
             <span className="text-red-700">{t("hero.greeting").split(" ")[1]}</span>
           </h1>
 
           <motion.h2 
-            className="text-2xl md:text-3xl font-light text-gray-300 mb-8"
+            className="text-xl sm:text-2xl md:text-3xl font-light text-gray-300 mb-6 md:mb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.8 }}
@@ -69,7 +69,7 @@ const Hero = () => {
             <span className="font-semibold text-red-400">{t("hero.subtitleHighlight")}</span>
           </motion.h2>
 
-          <p className="text-lg text-gray-400 mb-8 leading-relaxed max-w-2xl">
+          <p className="text-base md:text-lg text-gray-400 mb-6 md:mb-8 leading-relaxed max-w-2xl">
             {t("hero.description")}
           </p>
 
@@ -110,14 +110,14 @@ const Hero = () => {
 
           {/* Buttons */}
           <motion.div 
-            className="flex flex-wrap justify-center md:justify-start gap-6 mb-10"
+            className="flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-4 md:gap-6 mb-8 md:mb-10"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
           >
             <motion.a
               href="#projects"
-              className="group bg-gradient-to-r from-red-700 to-red-600 hover:from-red-600 hover:to-red-500 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-3 transform"
+              className="group bg-gradient-to-r from-red-700 to-red-600 hover:from-red-600 hover:to-red-500 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3 transform"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -131,7 +131,7 @@ const Hero = () => {
             <motion.a
               href={cvUrl}
               download="CV-Carlos-Zuluaga.pdf"
-              className="group border-2 border-red-600 text-red-400 hover:bg-red-600 hover:text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center gap-3 backdrop-blur-sm"
+              className="group border-2 border-red-600 text-red-400 hover:bg-red-600 hover:text-white px-6 md:px-8 py-3 md:py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 backdrop-blur-sm"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -166,7 +166,7 @@ const Hero = () => {
 
         {/* Code dashboard - replacing profile image */}
         <motion.div
-          className="md:w-1/2 flex justify-center"
+          className="md:w-1/2 flex justify-center mt-8 md:mt-0"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
@@ -181,11 +181,12 @@ const Hero = () => {
                   <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                 </div>
-                <span className="text-gray-400 text-sm ml-4">~/portfolio/backend</span>
+                <span className="text-gray-400 text-sm ml-4 hidden sm:inline">~/portfolio/backend</span>
+                <span className="text-gray-400 text-xs ml-2 sm:hidden">~/backend</span>
               </div>
               
               {/* Code content */}
-              <div className="p-6 text-sm font-mono">
+              <div className="p-4 md:p-6 text-xs md:text-sm font-mono">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -216,7 +217,7 @@ const Hero = () => {
 
             {/* Floating metrics */}
             <motion.div
-              className="absolute -bottom-6 -right-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-4 rounded-xl shadow-xl text-center"
+              className="absolute -bottom-4 md:-bottom-6 -right-4 md:-right-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 md:px-6 py-3 md:py-4 rounded-xl shadow-xl text-center"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{
@@ -226,12 +227,12 @@ const Hero = () => {
                 damping: 20,
               }}
             >
-              <div className="font-bold text-2xl">{projectsCompleted}+</div>
-              <div className="text-sm opacity-90">{t("hero.projectsLabel")}</div>
+              <div className="font-bold text-xl md:text-2xl">{projectsCompleted}+</div>
+              <div className="text-xs md:text-sm opacity-90">{t("hero.projectsLabel")}</div>
             </motion.div>
 
             <motion.div
-              className="absolute -top-6 -left-6 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-4 rounded-xl shadow-xl text-center"
+              className="absolute -top-4 md:-top-6 -left-4 md:-left-6 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 md:px-6 py-3 md:py-4 rounded-xl shadow-xl text-center"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{
@@ -241,12 +242,12 @@ const Hero = () => {
                 damping: 20,
               }}
             >
-              <div className="font-bold text-2xl">{yearsOfExperience}</div>
-              <div className="text-sm opacity-90">{t("hero.yearsLabel")}</div>
+              <div className="font-bold text-xl md:text-2xl">{yearsOfExperience}</div>
+              <div className="text-xs md:text-sm opacity-90">{t("hero.yearsLabel")}</div>
             </motion.div>
 
             <motion.div
-              className="absolute top-1/2 -left-8 bg-gradient-to-r from-red-500 to-pink-500 text-white px-4 py-3 rounded-xl shadow-xl text-center transform -rotate-12"
+              className="absolute top-1/2 -left-6 md:-left-8 bg-gradient-to-r from-red-500 to-pink-500 text-white px-3 md:px-4 py-2 md:py-3 rounded-xl shadow-xl text-center transform -rotate-12"
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{
@@ -256,7 +257,7 @@ const Hero = () => {
                 damping: 20,
               }}
             >
-              <div className="font-bold text-lg">Java</div>
+              <div className="font-bold text-base md:text-lg">Java</div>
               <div className="text-xs opacity-90">{t("hero.expertLabel")}</div>
             </motion.div>
           </div>

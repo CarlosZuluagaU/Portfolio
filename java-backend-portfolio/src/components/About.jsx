@@ -63,25 +63,9 @@ const About = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-red-700 dark:text-red-500">{t("about.title").split(" ")[0]}</span> {t("about.title").split(" ").slice(1).join(" ")}
-          </h2>
-          <div className="w-20 h-1 bg-red-700 dark:bg-red-500 mx-auto mb-6 rounded-full"></div>
-          <p className="max-w-2xl mx-auto text-gray-300 dark:text-gray-400 text-lg">
-            {t("about.description")}
-          </p>
-        </motion.div>
-
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             <span className="text-red-700 dark:text-red-500">{t("about.subtitle").split(" ")[0]}</span> {t("about.subtitle").split(" ").slice(1).join(" ")}
           </h2>
-          <div className="w-20 h-1 bg-red-700 dark:text-red-500 mx-auto mb-6 rounded-full"></div>
+          <div className="w-20 h-1 bg-red-700 dark:bg-red-500 mx-auto mb-6 rounded-full"></div>
           <p className="max-w-3xl mx-auto text-gray-300 dark:text-gray-400 text-lg leading-relaxed">
             {t("about.description")}
           </p>
@@ -128,7 +112,7 @@ const About = () => {
             viewport={{ once: true }}
           >
             <h3 className="text-2xl font-semibold mb-8 text-center text-red-700 dark:text-red-500">
-              Mi Trayectoria Profesional
+              {t("about.experience.title")}
             </h3>
             
             <div className="space-y-8 relative before:absolute before:left-7 before:h-full before:w-0.5 before:bg-red-700 dark:before:bg-red-900 before:top-4">
